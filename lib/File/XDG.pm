@@ -13,21 +13,21 @@ use if $^O eq 'MSWin32', 'Win32';
 =head1 SYNOPSIS
 
  use File::XDG 1.00;
- 
+
  my $xdg = File::XDG->new( name => 'foo', api => 1 );
- 
+
  # user config
  my $path = $xdg->config_home;
- 
+
  # user data
  my $path = $xdg->data_home;
- 
+
  # user cache
  my $path = $xdg->cache_home;
- 
+
  # system $config
  my @dirs = $xdg->config_dirs_list;
- 
+
  # system data
  my @dirs = $xdg->data_dirs_list;
 
@@ -109,7 +109,7 @@ Example:
  my $xdg = File::XDG->new(
    name => 'foo',
    # equivalent to path_class => 'Path::Tiny'
-   path_class => sub { Path::Tiny->new(@_),
+   path_class => sub { Path::Tiny->new(@_) },
  );
 
 =item C<ARRAY>
@@ -123,7 +123,7 @@ between files and directories.
  my $xdg = File::XDG->new(
    name => 'foo',
    path_class => [
-     sub { Path::Class::File->new(@_) ),
+     sub { Path::Class::File->new(@_) },
      sub { Path::Class::Dir->new(@_) },
    ],
  );
